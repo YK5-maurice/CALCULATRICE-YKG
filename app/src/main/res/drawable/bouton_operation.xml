@@ -1,0 +1,5 @@
+<!-- bouton_rond.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#FF9800" /> <!-- Couleur de fond du cercle -->
+    <corners android:radius="200dp" />
+</shape>

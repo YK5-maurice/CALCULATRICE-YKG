@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="#000000"
+    tools:ignore="HardcodedText"
+    android:layout_margin="2dp">
+
+
+
+
+        <!-- Rendre la barre initialement invisible -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:padding="20dp">
+
+        <TextView
+
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:gravity="end"
+            android:paddingTop="0dp"
+            android:text="12+12=24"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+    </LinearLayout>
+
+        <LinearLayout style="@style/layer">
+
+            <Button
+                style="@style/OpBouton"
+                android:id="@+id/C"
+                android:text="C" />
+
+            <Button
+                android:id="@+id/op1"
+                style="@style/OpBouton"
+                android:text="%" />
+
+            <Button
+                android:id="@+id/AC"
+                style="@style/OpBouton"
+                android:text="AC" />
+
+            <Button
+                android:id="@+id/op2"
+                style="@style/OpBouton"
+                android:text="/" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/layer">
+
+            <Button
+                android:id="@+id/bt7"
+                style="@style/nbBouton"
+                android:text="7"/>
+
+            <Button
+                android:id="@+id/bt8"
+                style="@style/nbBouton"
+                android:text="8" />
+
+            <Button
+                android:id="@+id/bt9"
+                style="@style/nbBouton"
+                android:text="9" />
+
+            <Button
+                android:id="@+id/op3"
+                android:text="*"
+                style="@style/OpBouton"/>
+        </LinearLayout>
+
+        <LinearLayout style="@style/layer">
+
+            <Button
+                android:id="@+id/bt4"
+                style="@style/nbBouton"
+                android:text="@string/_4" />
+
+            <Button
+                android:id="@+id/bt5"
+                style="@style/nbBouton"
+                android:text="@string/_5"/>
+
+            <Button
+                android:id="@+id/bt6"
+                style="@style/nbBouton"
+                android:text="@string/_6"/>
+
+            <Button
+                android:id="@+id/op4"
+                style="@style/OpBouton"
+                android:text="@string/t" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/layer">
+
+            <Button
+                android:id="@+id/bt1"
+                style="@style/nbBouton"
+                android:text="1" />
+
+            <Button
+                android:id="@+id/bt2"
+                style="@style/nbBouton"
+                android:text="2"/>
+
+            <Button
+                android:id="@+id/bt3"
+                style="@style/nbBouton"
+                android:text="3" />
+
+            <Button
+                android:id="@+id/op5"
+                style="@style/OpBouton"
+                android:text="+"/>
+        </LinearLayout>
+
+        <LinearLayout style="@style/layer"
+            android:layout_marginBottom="2dp">
+
+            <Button
+                android:id="@+id/op6"
+                style="@style/nbBouton"
+                android:text="+/-"/>
+
+            <Button
+                android:id="@+id/bt0"
+                style="@style/nbBouton"
+                android:text="0" />
+
+            <Button
+                android:id="@+id/op0"
+                style="@style/nbBouton"
+                android:text="." />
+
+            <Button
+                android:id="@+id/egal"
+                style="@style/OpBouton"
+                android:text="=" />
+        </LinearLayout>
+<!--
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp">
+
+
+        <TableRow>
+            <Button
+                android:id="@+id/C"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="C"
+                android:layout_margin="2sp"
+                android:textSize="50sp"
+                android:background="@drawable/bouton_operation" />
+
+            <Button
+                android:id="@+id/op1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="%"
+                android:layout_margin="2sp"
+                android:textSize="50sp"
+                android:background="@drawable/bouton_operation" />
+
+            <Button
+                android:id="@+id/AC"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="AC"
+                android:layout_margin="2sp"
+                android:textSize="50sp"
+                android:background="@drawable/bouton_operation" />
+            <Button
+                android:id="@+id/op2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="/"
+                android:layout_margin="2sp"                android:textSize="50sp"
+                android:background="@drawable/bouton_operation" />
+        </TableRow>
+        <TableRow>
+            <Button
+                android:id="@+id/bt7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="7"
+                android:layout_margin="2sp"
+                android:textSize="50sp"
+                android:background="@drawable/bouton_nombre"/>
+
+            <Button
+                android:id="@+id/bt8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="8"
+                android:layout_margin="2sp"                android:textSize="50sp"
+                android:background="@drawable/bouton_nombre"/>
+
+            <Button
+                android:id="@+id/bt9"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="9"
+                android:layout_margin="2sp"
+                android:textSize="50sp"
+                android:background="@drawable/bouton_nombre"/>
+            <Button
+                android:id="@+id/op3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="50sp"
+                android:layout_margin="2sp"
+                android:text="*"
+                android:background="@drawable/bouton_operation"/>
+        </TableRow>
+        <TableRow>
+            <Button
+                android:id="@+id/bt4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="50sp"
+                android:layout_margin="2sp"
+                android:text="@string/_4"
+                android:background="@drawable/bouton_nombre"/>
+
+            <Button
+                android:id="@+id/bt5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="50sp"
+                android:layout_margin="2sp"
+                android:text="@string/_5"
+                android:background="@drawable/bouton_nombre"/>
+
+            <Button
+                android:id="@+id/bt6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/_6"
+                android:textSize="50sp"
+                android:layout_margin="2sp"
+                android:background="@drawable/bouton_nombre"/>
+            <Button
+                android:id="@+id/op4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/t"
+                android:textSize="50dp"
+                android:layout_margin="2sp"
+                android:background="@drawable/bouton_operation"/>
+        </TableRow>
+        <TableRow>
+            <Button
+                android:id="@+id/bt1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1"
+                android:layout_margin="2sp"
+                android:textSize="50sp"
+                android:background="@drawable/bouton_nombre"/>
+
+            <Button
+                android:id="@+id/bt2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2"
+                android:layout_margin="2sp"
+                android:textSize="50sp"
+                android:background="@drawable/bouton_nombre"/>
+
+            <Button
+                android:id="@+id/bt3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="3"
+                android:layout_margin="2sp"
+                android:textSize="50sp"
+                android:background="@drawable/bouton_nombre"/>
+            <Button
+                android:id="@+id/op5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="+"
+                android:layout_margin="2sp"
+                android:textSize="50sp"
+                android:background="@drawable/bouton_operation"/>
+        </TableRow>
+        <TableRow>
+            <Button
+                android:id="@+id/op6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="+/-"
+                android:layout_margin="2sp"
+                android:textSize="50sp"
+                android:background="@drawable/bouton_nombre"/>
+
+            <Button
+                android:id="@+id/bt0"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="0"
+                android:layout_margin="2sp"
+                android:textSize="50sp"
+                android:background="@drawable/bouton_nombre"/>
+
+            <Button
+                android:id="@+id/op0"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=","
+                android:layout_margin="2sp"
+                android:textSize="50sp"
+                android:background="@drawable/bouton_nombre"/>
+            <Button
+                android:id="@+id/egal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="="
+                android:layout_margin="2sp"
+                android:textSize="50sp"
+                android:background="@drawable/bouton_operation"/>
+        </TableRow>
+    </TableLayout>
+    -->
+
+</LinearLayout>
