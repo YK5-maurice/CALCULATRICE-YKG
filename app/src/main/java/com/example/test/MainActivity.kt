@@ -194,14 +194,7 @@ class MainActivity : AppCompatActivity() {
             result="forma non prise en charge"
         }else{
             if (nombre2 !=""){
-                val resulta = when (op) {
-                    "+" -> nombre1.toInt()+nombre2.toInt()
-                    "-" -> nombre1.toInt()-nombre2.toInt()
-                    "/" -> nombre1.toInt()/nombre2.toInt()
-                    "%" -> nombre1.toInt()%nombre2.toInt()
-                    "*" -> nombre1.toInt()*nombre2.toInt()
-                    else -> throw IllegalArgumentException("Operateur non prise en charge")
-                }
+                val resulta = calcul(op)
                 nombre1=resulta.toString()
                 nombre2=""
                 result=nombre1+op1
@@ -228,14 +221,7 @@ class MainActivity : AppCompatActivity() {
     //fonction pour l'egalite
     private fun boutonEgal() :String{
         if (nombre2 !=""){
-            val resulta = when (op) {
-                "+" -> nombre1.toInt()+nombre2.toInt()
-                "-" -> nombre1.toInt()-nombre2.toInt()
-                "/" -> nombre1.toInt()/nombre2.toInt()
-                "%" -> nombre1.toInt()%nombre2.toInt()
-                "*" -> nombre1.toInt()*nombre2.toInt()
-                else -> throw IllegalArgumentException("Operateur non prise en charge")
-            }
+            val resulta = calcul(op)
             nombre1=resulta.toString()
             nombre2=""
 
@@ -246,6 +232,19 @@ class MainActivity : AppCompatActivity() {
         return nombre1
     }
 
+    //FONCTION POUR CALCULER
+    fun calcul(operateur: String): Int{
+
+         val res = when (operateur) {
+            "+" -> nombre1.toInt()+nombre2.toInt()
+            "-" -> nombre1.toInt()-nombre2.toInt()
+            "/" -> nombre1.toInt()/nombre2.toInt()
+            "%" -> nombre1.toInt()%nombre2.toInt()
+            "*" -> nombre1.toInt()*nombre2.toInt()
+            else -> throw IllegalArgumentException("Operateur non prise en charge")
+        }
+        return res
+    }
     //fonction pour effacer un nombre
     @SuppressLint("SetTextI18n")
     private fun boutonOnClear() : String{
