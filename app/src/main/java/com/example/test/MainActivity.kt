@@ -1,8 +1,16 @@
 package com.example.test
 import android.annotation.SuppressLint
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
+import android.view.ContextMenu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.test.databinding.ActivityMainBinding
 import java.lang.IllegalArgumentException
@@ -24,13 +32,15 @@ class MainActivity : AppCompatActivity() {
     var nombre2: String =""
     //variable operateur
     var op:String=""
+    //variable pour le presse papier
+    private lateinit var pressPapier:TextView
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         Listener_bouton()
         Listener_operation()
-
         binding.AC.setOnClickListener{ boutonAllClear() }
         binding.egal.setOnClickListener{ binding.editText.text=boutonEgal() }
         binding.D.setOnClickListener{binding.editText.text=boutonOnClear() }
@@ -46,8 +56,59 @@ class MainActivity : AppCompatActivity() {
             resultat = savedInstanceState.getString("resultat").toString()
 
         }
+        pressPapier=binding.editText
+
+        // Enregistrez le TextView pour le menu contextuel
+        registerForContextMenu(pressPapier)
+
+        // Ajoutez un texte d'exemple pour tester
+            //pressPapier.text = "Sélectionnez ce texte pour copier ou coller."
 
     }
+
+    // Définissez le menu contextuel pour le TextView
+    override fun onCreateContextMenu(menu: ContextMenu, v: View, menuInfo: ContextMenu.ContextMenuInfo?) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+        menu.setHeaderTitle("Options")
+        menu.add(0, v.id, 0, "Copier")
+        menu.add(0, v.id, 0, "Coller")
+    }
+    // Gérez les actions du menu contextuel
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+      //  val selectionStart = pressPapier.selectionStart
+      //  val selectionEnd = pressPapier.selectionEnd
+        val selectedText =binding.editText.text.toString()
+        when (item.title) {
+            "Copier" -> copyToClipboard(selectedText.toString())
+            "Coller" -> pasteFromClipboard()
+        }
+        return true
+    }
+
+    // Fonction pour copier du texte dans le presse-papiers
+    private fun copyToClipboard(text: String) {
+        if (text.isNotEmpty()) {
+            val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val clip = ClipData.newPlainText("Label", text)
+            clipboard.setPrimaryClip(clip)
+            Toast.makeText(this, "Texte copié dans le presse-papiers", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Le texte est vide, impossible de copier", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
+
+    // Fonction pour coller du texte depuis le presse-papiers
+    private fun pasteFromClipboard() {
+        val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        if (clipboard.hasPrimaryClip()) {
+            val pasteData = clipboard.primaryClip?.getItemAt(0)?.text.toString()
+            // Faites quelque chose avec le texte collé, par exemple, mettez-le dans le TextView
+            this.binding.editText.text = pasteData
+        }
+    }
+
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
@@ -246,5 +307,5 @@ class MainActivity : AppCompatActivity() {
         resultat=result
         return result
     }
-
 }
+

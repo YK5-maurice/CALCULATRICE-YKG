@@ -27,14 +27,14 @@
             android:layout_width="match_parent"
             android:layout_height="180sp"
             android:gravity="end"
-            android:text=""
+            android:text=" "
             android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:background="@color/white"
             android:textColor="@color/black"
             android:textSize="40sp"
-
+            android:textIsSelectable="true"
             />
 
     </LinearLayout>
